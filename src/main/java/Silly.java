@@ -78,11 +78,18 @@ public class Silly implements Comparable<Silly>{
      *       Afterwards, set this.name to the concatenation of both
      *       strings (e.g. this.name = [first string] + [second string]).
      *       Make sure you document this method!
+     *
      */
-
-
-
-
+    /**
+     * Creates a new Silly object.
+     * This constructor takes in two strings as its arguments.
+     *
+     * @param first the first part of this Silly instance's name.
+     * @param last the second part of this Silly instance's name.
+     */
+    public Silly (String first, String last){
+        this.name = first + last;
+    }
 
     public static void main(String[] args) {
         /**
@@ -97,6 +104,7 @@ public class Silly implements Comparable<Silly>{
         Silly first_version = new Silly("single str name");
         Silly second_version = new Silly(5);
         Silly third_version = new Silly("first", "second");
+
 
         System.out.println("Silly 1: " + first_version);
         System.out.println("Silly 2: " + second_version);
@@ -116,7 +124,7 @@ public class Silly implements Comparable<Silly>{
         y.countStatic();
         x.countStatic();
         x.countStatic();
-        int[] expected_values = {};
+        int[] expected_values = {0,1,2,3};
 
         System.out.println("The countStatic calls will return " + Arrays.toString(expected_values));
     }
@@ -134,6 +142,7 @@ public class Silly implements Comparable<Silly>{
     @Override
     public String toString(){
         // TODO (Task 3): Implement the body of this method!
+        return this.name;
     }
 
     /**
@@ -161,6 +170,7 @@ public class Silly implements Comparable<Silly>{
 
         // Hint: to compare strings, we need to use .equals()
         //       e.g. s1.equals(s2)
+        return this.name.equals(other.name);
     }
 
     /**
@@ -194,6 +204,14 @@ public class Silly implements Comparable<Silly>{
          *                You can get the length of a string by using the
          *                .length() method.
          */
+
+        if (this.name.length() > other.name.length()) {
+            return 1;
+        } else if (this.name.length() < other.name.length()) {
+            return -1;
+        } else {
+            return 0;
+        }
     }
 
     /*
